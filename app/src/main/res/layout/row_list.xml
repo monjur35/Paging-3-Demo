@@ -1,21 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="300dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="5dp"
+    app:cardCornerRadius="6dp"
+    app:cardElevation="5dp"
+    android:layout_marginHorizontal="4dp"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:id="@+id/image"/>
-    <TextView
-        android:id="@+id/head"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="fsdhfsd"
-        android:layout_below="@+id/image"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_margin="5dp"/>
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:id="@+id/image"/>
+        <TextView
+            android:id="@+id/head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="fsdhfsd"
+            android:layout_below="@+id/image"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_margin="5dp"/>
 
-</RelativeLayout>
+    </RelativeLayout>
+
+
+
+</com.google.android.material.card.MaterialCardView>

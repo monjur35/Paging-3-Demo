@@ -3,12 +3,8 @@ package com.example.paging3.response
 import com.google.gson.annotations.SerializedName
 import com.google.gson.annotations.Expose
 
-class Origin {
-    @SerializedName("name")
-    @Expose
-    var name: String? = null
+data class Origin (
 
-    @SerializedName("url")
-    @Expose
+    var name: String,
     var url: String? = null
-}
+)

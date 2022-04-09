@@ -3,20 +3,13 @@ package com.example.paging3.response
 import com.google.gson.annotations.SerializedName
 import com.google.gson.annotations.Expose
 
-class Info {
-    @SerializedName("count")
-    @Expose
-    var count: Int? = null
+data class Info(
 
-    @SerializedName("pages")
-    @Expose
-    var pages: Int? = null
+    var count: Int,
 
-    @SerializedName("next")
-    @Expose
-    var next: String? = null
+    var pages: String,
 
-    @SerializedName("prev")
-    @Expose
-    var prev: Any? = null
-}
+
+    var next: String,
+    var prev: String
+)
