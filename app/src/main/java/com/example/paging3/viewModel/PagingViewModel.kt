@@ -10,18 +10,19 @@ import com.example.paging3.network.ApiService
 import com.example.paging3.network.RetrofitService
 import com.example.paging3.paging.RickMortyDataSource
 import com.example.paging3.response.ResultDAta
+import com.example.paging3.response.newResponse.Result
 import kotlinx.coroutines.flow.Flow
 
 
 class PagingViewModel : ViewModel() {
-   lateinit var apiService: ApiService
+    var apiService: ApiService
     init {
          apiService = RetrofitService.retrofitInstance().create(ApiService::class.java)
     }
 
 
-    fun getList(): Flow<PagingData<ResultDAta>> {
-        return Pager(config = PagingConfig(pageSize = 10, maxSize = 50 ),
+    fun getList(): Flow<PagingData<Result>> {
+        return Pager(config = PagingConfig(pageSize = 42, maxSize = 200 ),
             pagingSourceFactory = {RickMortyDataSource(apiService)}).flow.cachedIn(viewModelScope)
 
     }

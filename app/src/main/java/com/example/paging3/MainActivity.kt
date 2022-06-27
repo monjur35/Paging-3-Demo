@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launchWhenCreated {
             viewModel.getList().collectLatest {
                 rvAdapter.submitData(it)
-                Log.d("TAG", "initViewModel: "+it.toString())
+               // Log.d("TAG", "initViewModel: " + it.toString())
             }
         }
 
@@ -39,8 +39,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun initRv(){
         rv.apply {
-           // layoutManager=StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
-            layoutManager=LinearLayoutManager(this@MainActivity)
+            layoutManager=StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
+            //layoutManager=LinearLayoutManager(this@MainActivity)
             val decoration=DividerItemDecoration(applicationContext,DividerItemDecoration.VERTICAL)
             addItemDecoration(decoration)
             rvAdapter= RecyclerViewAdapter()

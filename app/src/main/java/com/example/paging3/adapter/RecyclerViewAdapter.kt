@@ -11,15 +11,16 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.paging3.R
 import com.example.paging3.response.ResultDAta
+import com.example.paging3.response.newResponse.Result
 import com.squareup.picasso.Picasso
 
-class RecyclerViewAdapter :PagingDataAdapter<ResultDAta,RecyclerViewAdapter.RecyclerViewHolder>(DiffUtilCallback()) {
+class RecyclerViewAdapter :PagingDataAdapter<Result,RecyclerViewAdapter.RecyclerViewHolder>(DiffUtilCallback()) {
 
 
 
     override fun onBindViewHolder(holder: RecyclerViewAdapter.RecyclerViewHolder, position: Int) {
         holder.bind(getItem(position)!!)
-        Log.d("TAG", "onBindViewHolder: "+getItem(position))
+       // Log.d("TAG", "onBindViewHolder: "+getItem(position))
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewHolder {
@@ -29,24 +30,25 @@ class RecyclerViewAdapter :PagingDataAdapter<ResultDAta,RecyclerViewAdapter.Recy
 
 
 
-     class RecyclerViewHolder(view:View) : RecyclerView.ViewHolder(view){
+
+    class RecyclerViewHolder(view:View) : RecyclerView.ViewHolder(view){
 
         val imageView:ImageView=view.findViewById(R.id.image)
         val headLine:TextView=view.findViewById(R.id.head)
 
-        fun bind(item: ResultDAta) {
+        fun bind(item: Result) {
             headLine.text=item.name
             Picasso.get().load(item.image).into(imageView)
         }
     }
 
-    class DiffUtilCallback:DiffUtil.ItemCallback<ResultDAta>(){
+    class DiffUtilCallback:DiffUtil.ItemCallback<Result>(){
 
-        override fun areItemsTheSame(oldItem: ResultDAta, newItem: ResultDAta): Boolean {
+        override fun areItemsTheSame(oldItem: Result, newItem: Result): Boolean {
             return oldItem.name==newItem.name
         }
 
-        override fun areContentsTheSame(oldItem: ResultDAta, newItem: ResultDAta): Boolean {
+        override fun areContentsTheSame(oldItem: Result, newItem: Result): Boolean {
             return oldItem.name==newItem.name &&
                     oldItem.species==newItem.species
         }
