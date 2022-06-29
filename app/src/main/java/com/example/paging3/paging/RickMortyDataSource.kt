@@ -28,7 +28,7 @@ class RickMortyDataSource(val apiService: ApiService) : PagingSource<Int,Result>
                 Log.d("TAG", "load: "+nextPageNumber.toString())
             }
             LoadResult.Page(data = response.results,
-            prevKey = null,
+            prevKey = null,//prev page should not be null
             nextKey = nextPageNumber)
         }
         catch (e:Exception){
